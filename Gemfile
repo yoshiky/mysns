@@ -38,3 +38,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem "twitter-bootstrap-rails"
+gem "therubyracer"
+gem "less-rails"
