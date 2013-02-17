@@ -40,3 +40,7 @@ gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem "therubyracer"
 gem "less-rails"
+
+group :development do
+  gem 'thin'
+end
