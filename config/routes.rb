@@ -1,7 +1,18 @@
 Mysns::Application.routes.draw do
+  #get "home/index"
+  #get "home/new"
+  #get "home/create"
+  #get "home/edit"
+  #get "home/destroy"
+
+  devise_for :users
+
   get "welcome/index"
 
   root :to => 'welcome#index'
+  
+  # ログイン後の遷移先
+  match "home/index", :as => :user_root
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -58,5 +69,5 @@ Mysns::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+   match ':controller(/:action(/:id))(.:format)'
 end

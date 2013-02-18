@@ -41,6 +41,8 @@ gem "twitter-bootstrap-rails"
 gem "therubyracer"
 gem "less-rails"
 
+gem 'devise'
+
 group :development do
   gem 'thin'
 end

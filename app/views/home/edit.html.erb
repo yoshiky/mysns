@@ -1,10 +1,8 @@
-<h1>Welcome</h1>
+<h1>Home#edit</h1>
+<p>Find me in app/views/home/edit.html.erb</p>
+
 <% if user_signed_in? %>
   <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
 <% else %>
   <%= link_to "LogIn", new_user_session_path %>
 <% end %>
-
-<div class="hero-unit">
-  <h1>WELCOME !! Fooo!</h1>
-</div>
