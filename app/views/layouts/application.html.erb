@@ -51,6 +51,21 @@
               <li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
+            <ul class="nav">
+              <li class="span4"><%= link_to "Link1", "/path1"  %></li>
+              <li><%= link_to "Link2", "/path2"  %></li>
+              <li><%= link_to "Link3", "/path3"  %></li>
+            </ul>
+
+          <!-- ログイン／ログアウトボタン -->
+          <div class="nav pull-right">
+              <% if user_signed_in? %>
+                <button class="btn btn=info"><%= link_to "LogOut", destroy_user_session_path, method: :delete %></button>
+              <% else %>
+                <button class="btn btn=info"><%= link_to "LogIn", new_user_session_path %></button>
+              <% end %>
+          </div>
+
           </div><!--/.nav-collapse -->
         </div>
       </div>
