@@ -42,6 +42,7 @@ gem "therubyracer"
 gem "less-rails"
 
 gem 'devise'
+gem 'rails3_acts_as_paranoid'
 
 group :development do
   gem 'thin'
