@@ -44,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Mysns</a>
+          <a class="brand" href=<%= root_path %>>Mysns</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Link1", "/path1"  %></li>
@@ -52,17 +52,21 @@
               <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
             <ul class="nav">
-              <li class="span4"><%= link_to "Link1", "/path1"  %></li>
+              <li class="span4">
+                <% if user_signed_in? %>
+                  <p class="navbar-text">Logged in as &nbsp;&nbsp;<%= current_user.email %></p>
+                <% end %>
+              </li>
               <li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
 
-          <!-- ログイン／ログアウトボタン -->
+          <!-- サインイン／サインアウトボタン -->
           <div class="nav pull-right">
               <% if user_signed_in? %>
-                <button class="btn btn=info"><%= link_to "LogOut", destroy_user_session_path, method: :delete %></button>
+                <%= link_to "SignOut", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
               <% else %>
-                <button class="btn btn=info"><%= link_to "LogIn", new_user_session_path %></button>
+                <%= link_to "SignIn", new_user_session_path, class: "btn btn-primary" %>
               <% end %>
           </div>
 
@@ -73,16 +77,20 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
+        <!-- side bar -->
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "EDIT YOUR PROFILE", "/path1"  %></li>
+              <li><%= link_to "RECIEVED MASSAGE", "/path2"  %></li>
+              <li><%= link_to "SEND MASSAGE", "/path3"  %></li>
+              <li><%= link_to "FIND MEMBERS", "/path3"  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
+
+        <!-- body contants -->
         <div class="span9">
           <%= bootstrap_flash %>
           <%= yield %>

@@ -5,14 +5,20 @@ Mysns::Application.routes.draw do
   #get "home/edit"
   #get "home/destroy"
 
-  devise_for :users
+  devise_for :users do
+    get "welcome" => "devise/registrations#new", :as => :new_user_registration
+  end
 
-  get "welcome/index"
+  #get "welcome/index"
 
-  root :to => 'welcome#index'
+  #root :to => 'welcome#index'
+  root :to => 'welcome#redirect_to_sign_up'
   
   # ログイン後の遷移先
-  match "home/index", :as => :user_root
+  #match "home/index", :as => :user_root
+  namespace :user do
+    root :to => "home#index"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
