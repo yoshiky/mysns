@@ -1,0 +1,14 @@
+<h1>Search#index</h1>
+<div class="nav">
+  <%= form_for @search_form, :url => {:action => 'index'}, :html => {:method => :get} do |f| %>
+    <%= f.search_field :q, class: "search-query" %>
+    <%= f.submit '検索', class: "btn" %>
+  <% end %>
+</div>
+
+<% @users.each do |f| %>
+  <p><%= link_to f.name, search_path(f.id) %> </p>
+  <p><%= f.email %><p>
+  <hr/>
+<% end %>
+

@@ -1,0 +1,8 @@
+<h1>Message_board#index</h1>
+
+<% @message_boards.each do |mb| %>
+  <%= mb.title %><br/>
+  <%= mb.body %><br/>
+  <%= mb.updated_at %>
+  <hr/>
+<% end %>

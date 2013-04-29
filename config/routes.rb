@@ -1,24 +1,21 @@
 Mysns::Application.routes.draw do
-  #get "home/index"
-  #get "home/new"
-  #get "home/create"
-  #get "home/edit"
-  #get "home/destroy"
 
-  devise_for :users do
-    get "welcome" => "devise/registrations#new", :as => :new_user_registration
-  end
+  root :to => 'welcome#index'
 
-  #get "welcome/index"
-
-  #root :to => 'welcome#index'
-  root :to => 'welcome#redirect_to_sign_up'
+  devise_for :users
   
   # ログイン後の遷移先
-  #match "home/index", :as => :user_root
   namespace :user do
     root :to => "home#index"
   end
+
+  resources :home do
+    post 'search', :on => :collection
+  end
+
+  match 'message_boards/list'
+  resources :search
+  resources :message_boards 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

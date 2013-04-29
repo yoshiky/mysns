@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_paranoid
+  
+  has_many :message_board
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -8,6 +10,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :name, :birthday, :address, :self_introduction, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 end

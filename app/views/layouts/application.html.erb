@@ -49,15 +49,14 @@
             <ul class="nav">
               <li><%= link_to "Link1", "/path1"  %></li>
               <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
             <ul class="nav">
-              <li class="span4">
+              <li class="span2">
                 <% if user_signed_in? %>
-                  <p class="navbar-text">Logged in as &nbsp;&nbsp;<%= current_user.email %></p>
+                  <p class="navbar-text">Logged in as &nbsp;&nbsp;<%= current_user.name %></p>
                 <% end %>
               </li>
-              <li><%= link_to "Link2", "/path2"  %></li>
+              <li><%= link_to "POST MESSAGE", new_message_board_path  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
 
@@ -66,7 +65,16 @@
               <% if user_signed_in? %>
                 <%= link_to "SignOut", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
               <% else %>
-                <%= link_to "SignIn", new_user_session_path, class: "btn btn-primary" %>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= f.email_field :email, :autofocus => true %>
+  <%= f.password_field :password %>
+  <% if devise_mapping.rememberable? -%>
+    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+  <% end -%>
+  <%= f.submit "SignIn", class: "btn btn-primary" %>
+<% end %>
+
               <% end %>
           </div>
 
@@ -82,10 +90,12 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li><%= link_to "EDIT YOUR PROFILE", "/path1"  %></li>
+              <li><%= link_to "EDIT YOUR PROFILE", edit_user_registration_path  %></li>
               <li><%= link_to "RECIEVED MASSAGE", "/path2"  %></li>
               <li><%= link_to "SEND MASSAGE", "/path3"  %></li>
-              <li><%= link_to "FIND MEMBERS", "/path3"  %></li>
+              <li><%= link_to "SEARCH MEMBERS", search_index_path  %></li>
+              <li><%= link_to "SHOW MESSAGE BOARDS", message_boards_list_path  %></li>
+              <li><%= link_to "YOUR POSTED MESSAGE", message_boards_path  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

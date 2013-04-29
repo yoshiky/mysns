@@ -1,0 +1,5 @@
+class AddColumnSelfIntroductionToUsers < ActiveRecord::Migration
+  def change
+    add_column :users, :SelfIntroduction, :text, :after => :address
+  end
+end

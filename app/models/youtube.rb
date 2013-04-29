@@ -3,16 +3,8 @@ class Youtube < ActiveResource::Base
 
   self.site = "http://gdata.youtube.com"
 
-
-  class  Format
-    include ActiveResource::Formats::JsonFormat
-
-    def decode(json)
-      super(json.gsub("$", "_"))
-    end
-  end
-
-  self.format = Format.new
+  # youtubeAPIのレスポンスで＄は処理できないので、_に置換するFormat.
+  self.format = YoutubeUtil.new
 
   def self.videos(search_word)
     self.find(:one, from: "/feeds/api/videos", params: {q: search_word, :"max-results" => 10 , alt:"json" })
