@@ -2,7 +2,16 @@
 
 <% @message_boards.each do |mb| %>
   <%= mb.title %><br/>
-  <%= mb.body %><br/>
-  <%= mb.updated_at %>
+  <%= mb.updated_at %><br/>
   <hr/>
 <% end %>
+
+
+<%# <% @users.each do |user| %>
+<%#   <% user.message_board.each do |mb| %>
+<%#     <%= mb.title %>
+<%#     <%= mb.body %>
+<%#     <%= mb.updated_at %>
+<%#     <hr/>
+<%#   <% end %>
+<%# <% end %>

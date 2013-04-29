@@ -4,6 +4,8 @@ class MessageBoard < ActiveRecord::Base
 
   belongs_to :user
 
+  scope :order_by_date_desc, order("updated_at desc")
+
   scope :find_my_message, lambda { |q|
     where 'user_id = :q', :q => "#{q}"
   }

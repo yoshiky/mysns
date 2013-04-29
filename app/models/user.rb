@@ -11,5 +11,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :name, :birthday, :address, :self_introduction, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+
+  scope :find_user_except, lambda { |q|
+    where 'id <> :q', :q => "#{q}}"
+  }
+
 end

@@ -2,7 +2,7 @@ class MessageBoardsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @message_boards = MessageBoard.find_my_message(current_user.id)
+    @message_boards = MessageBoard.find_my_message(current_user.id).order_by_date_desc
   end
 
   def new
@@ -26,6 +26,7 @@ class MessageBoardsController < ApplicationController
   end
 
   def list
-    @message_boards = MessageBoard.find_message_except_me(current_user.id)
+    #@users = User.find_user_except(current_user.id)
+    @message_boards = MessageBoard.find_message_except_me(current_user.id).order_by_date_desc
   end
 end
