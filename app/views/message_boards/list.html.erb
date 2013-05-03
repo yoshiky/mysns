@@ -1,17 +1,10 @@
 <h1>Message_board#list</h1>
 
 <% @message_boards.each do |mb| %>
-  <%= mb.title %><br/>
-  <%= mb.updated_at %><br/>
+  <p>No：<%= mb.id %></p>
+  <p>投稿者：<%= mb.user.name %></p>
+  <p>タイトル：<%= link_to mb.title, message_board_path(mb.id) %></p>
+  <p>投稿日：<%= mb.updated_at %></p>
   <hr/>
 <% end %>
 
-
-<%# <% @users.each do |user| %>
-<%#   <% user.message_board.each do |mb| %>
-<%#     <%= mb.title %>
-<%#     <%= mb.body %>
-<%#     <%= mb.updated_at %>
-<%#     <hr/>
-<%#   <% end %>
-<%# <% end %>
