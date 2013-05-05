@@ -1,5 +1,4 @@
 <h1>message_board#show</h1>
-<p id="notice"><%= notice %></p>
 
 <p>
   <b>タイトル</b>
@@ -22,5 +21,12 @@
   <p><%= @message_board.body %></p>
 </p>
 
+<hr>
 
-<%= link_to 'back', message_boards_list_path %>
+<div>
+  <%= render :template => "comments/_form" %>
+</div>
+
+<div>
+  <%= link_to 'back', message_boards_list_path %>
+</div>

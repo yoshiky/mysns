@@ -23,10 +23,10 @@ class MessageBoardsController < ApplicationController
 
   def show
     @message_board = MessageBoard.find(params[:id])
+    @comment = @message_board.comments.new
   end
 
   def list
-    #@users = User.find_user_except(current_user.id)
     @message_boards = MessageBoard.find_message_except_me(current_user.id).order_by_date_desc
   end
 end

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  message_board_id: 1
+  user_id: 1
+  title: MyString
+  body: MyText
+  deleted_at: 2013-05-05 14:34:31
+  lock_version: 1
+
+two:
+  message_board_id: 1
+  user_id: 1
+  title: MyString
+  body: MyText
+  deleted_at: 2013-05-05 14:34:31
+  lock_version: 1

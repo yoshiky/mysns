@@ -15,7 +15,9 @@ Mysns::Application.routes.draw do
 
   match 'message_boards/list'
   resources :search
-  resources :message_boards 
+  resources :message_boards do
+    resources :comments 
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

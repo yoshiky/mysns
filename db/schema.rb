@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428184415) do
+ActiveRecord::Schema.define(:version => 20130505053431) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "message_board_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.datetime "deleted_at"
+    t.integer  "lock_version",     :default => 0
+  end
 
   create_table "message_boards", :force => true do |t|
     t.integer  "user_id"

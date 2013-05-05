@@ -1,8 +1,8 @@
 class MessageBoard < ActiveRecord::Base
-  #attr_accessible :body, :deleted_at, :lock_version, :title, :user_id
-  attr_accessible :body, :title
+  attr_accessible :body, :title, :user_id
 
   belongs_to :user
+  has_many :comments
 
   scope :order_by_date_desc, order("updated_at desc")
 
