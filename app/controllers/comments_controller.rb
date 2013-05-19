@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
   def create
     @message_board = MessageBoard.find(params[:message_board_id])
     @comment = @message_board.comments.new(params[:comment])
-    @comment.user_id = current_user.id 
+    @comment.from_user_id = current_user.id
+    @comment.to_user_id = @message_board.user_id
  
     if @comment.save
       flash[:notice] = "your message has posted successfully !"

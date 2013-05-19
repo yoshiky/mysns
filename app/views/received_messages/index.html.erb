@@ -1,0 +1,11 @@
+<h1>received_message#index</h1>
+
+<% @received_messages.each do |rm| %>
+  <%= rm.id %><br/>
+  <%#= rm.message_board.user.name %><br/>
+  <%= rm.title %><br/>
+  <%= rm.user.name %><br/>
+  <%= rm.body %><br/>
+  <%= rm.updated_at %>
+  <hr/>
+<% end %>

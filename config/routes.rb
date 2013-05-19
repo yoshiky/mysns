@@ -18,6 +18,8 @@ Mysns::Application.routes.draw do
   resources :message_boards do
     resources :comments 
   end
+  resources :received_messages
+  resources :sent_messages
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

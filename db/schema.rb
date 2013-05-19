@@ -11,11 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505053431) do
+ActiveRecord::Schema.define(:version => 20130518183633) do
 
   create_table "comments", :force => true do |t|
     t.integer  "message_board_id"
-    t.integer  "user_id"
+    t.integer  "from_user_id"
+    t.integer  "to_user_id"
     t.string   "title"
     t.text     "body"
     t.datetime "created_at",                      :null => false
